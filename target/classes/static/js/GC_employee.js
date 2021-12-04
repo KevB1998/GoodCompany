@@ -10,7 +10,7 @@ function getEmployeeInfo() {
     }
 
     let request = new XMLHttpRequest();
-    request.open("POST", "/EmployeeInfo", false);
+    request.open("POST", "/GoodCompany/EmployeeInfo", false);
     request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify(obj));
     let response = request.responseText;
@@ -33,7 +33,7 @@ function changePassword() {
     }
 
     let request = new XMLHttpRequest();
-    request.open("POST", "/ChangePassword", false);
+    request.open("POST", "/GoodCompany/ChangePassword", false);
     request.setRequestHeader("Content-Type", "application/json");
     request.send(JSON.stringify(obj));
 }

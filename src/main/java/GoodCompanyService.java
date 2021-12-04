@@ -53,6 +53,8 @@ public class GoodCompanyService {
             }
             System.out.println("OUT");
 
+            stmt.close();
+            conn.close();
             return out;
         } catch (Exception e) {
             //Return exception
@@ -73,6 +75,9 @@ public class GoodCompanyService {
             String query = "UPDATE employee SET Password=\"" + nPassword + "\" WHERE EID=\"" + eid + "\" AND Password=\"" + cPassword + "\";";
             stmt.execute(query);
             conn.commit();
+
+            stmt.close();
+            conn.close();
             return true;
         } catch (Exception e) {
             //Return exception
