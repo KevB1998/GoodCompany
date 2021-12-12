@@ -27,16 +27,12 @@ public class GoodCompanyService {
             String out = "";
 
             boolean hasMoreResultSets = stmt.execute(query);
-            System.out.println("Done");
             while ( hasMoreResultSets || stmt.getUpdateCount() != -1 ) {
-                System.out.println("OUTSIDER");
                 if ( hasMoreResultSets ) {
                     ResultSet results = stmt.getResultSet();
                     ResultSetMetaData resultsData = results.getMetaData();
                     int cols = resultsData.getColumnCount();
-                    System.out.println("OUTSIDE");
                     while(results.next()) {
-                        System.out.println("INSIDE");
                         for(int i = 1; i <= cols; i++) {
                             out += resultsData.getColumnName(i) + ": " + results.getString(i) + "\n";
                         }
@@ -51,7 +47,6 @@ public class GoodCompanyService {
                 }
                 hasMoreResultSets = stmt.getMoreResults();
             }
-            System.out.println("OUT");
 
             stmt.close();
             conn.close();
